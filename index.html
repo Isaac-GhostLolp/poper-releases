@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Poper Premium · temas vivos para o seu caderno</title>
+<meta name="description" content="O Poper é um caderno de notas, tarefas e calendário para Windows e Linux. O Premium libera sete temas vivos, editor de temas, sons, cursores e mais, por R$ 49 em pagamento único.">
+<meta property="og:title" content="Poper Premium">
+<meta property="og:description" content="Sete temas vivos, editor de temas, sons e mais para o seu Poper. R$ 49, pagamento único.">
+<meta property="og:image" content="img/og.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="img/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --desk: #e6d6bd;
+    --desk-2: #dcc8a8;
+    --card: #fbf5ea;
+    --card-2: #f4ead8;
+    --ink: #45362a;
+    --ink-2: #7a6650;
+    --edge: #c9b08a;
+    --accent: #b3a6ea;
+    --accent-ink: #2e2556;
+    --tape: rgba(246, 222, 140, 0.82);
+    --butter: #f6de8c;
+    --rose: #f2a7b5;
+    --sage: #a9cf9f;
+    --head: 'Fredoka', 'Nunito', sans-serif;
+    --body: 'Nunito', system-ui, sans-serif;
+    --hand: 'Caveat', cursive;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--desk);
+    color: var(--ink);
+    font: 17px/1.6 var(--body);
+    overflow-x: hidden;
+    /* fibras de papelão bem discretas */
+    background-image:
+      repeating-linear-gradient(90deg, rgba(120, 90, 50, 0.035) 0 2px, transparent 2px 7px),
+      radial-gradient(ellipse at 20% 0%, rgba(255, 255, 255, 0.35), transparent 60%);
+  }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--accent-ink); outline-offset: 3px; border-radius: 6px; }
+  .wrap { width: 100%; max-width: 1168px; margin: 0 auto; padding: 0 24px; }
+  @media (max-width: 600px) { .wrap { padding: 0 16px; } }
+
+  /* ---------- botões de papelão ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    min-height: 50px; padding: 0 24px;
+    font: 600 18px var(--head); color: var(--accent-ink); text-decoration: none;
+    background: var(--accent); border: 2px solid rgba(46, 37, 86, 0.18); border-radius: 14px;
+    box-shadow: 0 5px 0 #8a7cc8; cursor: pointer;
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 7px 0 #8a7cc8; }
+  .btn:active { transform: translateY(4px); box-shadow: 0 1px 0 #8a7cc8; }
+  .btn[aria-disabled="true"] { cursor: default; opacity: .75; }
+  .btn[aria-disabled="true"]:hover { transform: none; box-shadow: 0 5px 0 #8a7cc8; }
+  .link { font-weight: 700; text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 2px; text-decoration-color: var(--edge); }
+  .link:hover { text-decoration-color: var(--ink); }
+
+  .label { font: 700 13px var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); }
+  .hand { font-family: var(--hand); font-weight: 700; }
+
+  /* ---------- topo ---------- */
+  header.top { padding: 22px 0; }
+  header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 10px; font: 700 22px var(--head); text-decoration: none; }
+  .brand img { width: 38px; height: 38px; border-radius: 10px; box-shadow: 0 3px 0 var(--edge); }
+  .top nav { display: flex; gap: 22px; font-weight: 700; font-size: 15px; }
+  .top nav a { text-decoration: none; color: var(--ink-2); }
+  .top nav a:hover { color: var(--ink); }
+
+  /* ---------- hero ---------- */
+  .hero { padding: 40px 0 90px; }
+  .hero .wrap { display: grid; grid-template-columns: 1fr 1.25fr; gap: 56px; align-items: center; }
+  .hero h1 { font: 700 clamp(40px, 5.4vw, 68px)/1.02 var(--head); margin: 14px 0 20px; letter-spacing: -.01em; }
+  .hero h1 em { font-style: normal; position: relative; white-space: nowrap; }
+  .hero h1 em::after {
+    content: ''; position: absolute; left: -4px; right: -4px; bottom: .08em; height: .32em; z-index: -1;
+    background: var(--butter); border-radius: 4px; transform: rotate(-1deg);
+  }
+  .hero p.lead { font-size: 19px; color: var(--ink-2); margin: 0 0 30px; max-width: 30em; }
+  .cta-row { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+  .fine { margin-top: 18px; font-size: 14px; color: var(--ink-2); }
+
+  .stack { position: relative; aspect-ratio: 1366 / 736; }
+  .shot {
+    position: absolute; inset: 0; border-radius: 14px; overflow: hidden;
+    border: 3px solid var(--card); background: var(--card);
+    box-shadow: 0 8px 0 var(--edge), 0 24px 40px rgba(69, 54, 42, 0.18);
+  }
+  .shot img { width: 100%; height: 100%; object-fit: cover; }
+  .stack .back { transform: rotate(5deg) translate(7%, -9%) scale(.9); opacity: .95; }
+  .stack .mid { transform: rotate(-4deg) translate(-6%, -5%) scale(.92); }
+  .stack .front { transform: rotate(1deg); }
+  .tape {
+    position: absolute; width: 110px; height: 30px; background: var(--tape); z-index: 2;
+    box-shadow: 0 1px 2px rgba(0,0,0,.08);
+    mask: linear-gradient(90deg, transparent 0 3px, #000 3px calc(100% - 3px), transparent calc(100% - 3px));
+  }
+  .tape.a { top: -14px; left: 12%; transform: rotate(-6deg); }
+  .tape.b { bottom: -12px; right: 10%; transform: rotate(4deg); }
+  .sticker {
+    position: absolute; right: -14px; top: -26px; z-index: 3;
+    font: 700 26px/1.05 var(--hand); text-align: center; color: var(--ink);
+    background: var(--butter); padding: 12px 16px 10px; border-radius: 6px;
+    transform: rotate(7deg); box-shadow: 0 4px 0 #d9bd62;
+  }
+
+  /* ---------- seções ---------- */
+  section { padding: 90px 0; }
+  h2 { font: 700 clamp(32px, 4vw, 48px)/1.08 var(--head); margin: 10px 0 16px; }
+  .intro { max-width: 640px; color: var(--ink-2); font-size: 18px; margin: 0; }
+
+  /* ---------- provador de temas ---------- */
+  .themes {
+    --t-desk: #e6d6bd; --t-ink: #45362a; --t-accent: #b3a6ea; --t-card: #fbf5ea;
+    background: var(--t-desk); color: var(--t-ink);
+    transition: background-color .5s ease, color .5s ease;
+    border-top: 3px solid rgba(0,0,0,.06); border-bottom: 3px solid rgba(0,0,0,.06);
+  }
+  .themes .label, .themes .intro { color: inherit; opacity: .75; }
+  .themes-head { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: end; margin-bottom: 36px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    font: 600 15px var(--head); padding: 8px 14px; border-radius: 10px; cursor: pointer;
+    color: var(--t-ink); background: color-mix(in srgb, var(--t-card) 82%, transparent);
+    border: 2px solid color-mix(in srgb, var(--t-ink) 18%, transparent);
+    transition: transform .12s ease, background-color .3s ease;
+  }
+  .chip:hover { transform: translateY(-2px); }
+  .chip[aria-pressed="true"] { background: var(--t-accent); color: #111; border-color: transparent; }
+  .chip small { font: 700 10px var(--body); letter-spacing: .08em; text-transform: uppercase; margin-left: 6px; opacity: .7; }
+  .viewer { position: relative; }
+  .viewer .screen {
+    border-radius: 16px; overflow: hidden; aspect-ratio: 1366 / 736;
+    border: 3px solid color-mix(in srgb, var(--t-ink) 22%, transparent);
+    box-shadow: 0 10px 0 rgba(0,0,0,.18), 0 30px 60px rgba(0,0,0,.25);
+    background: #000;
+  }
+  .viewer img { width: 100%; height: 100%; object-fit: cover; transition: opacity .25s ease; }
+  .viewer img.fading { opacity: 0; }
+  .caption { display: flex; align-items: baseline; gap: 14px; margin-top: 22px; flex-wrap: wrap; }
+  .caption b { font: 700 28px var(--head); }
+  .caption span { opacity: .8; }
+  .caption .tag { font: 700 12px var(--body); letter-spacing: .1em; text-transform: uppercase; padding: 3px 9px; border-radius: 6px; background: var(--t-accent); color: #111; }
+
+  /* ---------- nota do pedido ---------- */
+  .box .wrap { display: grid; grid-template-columns: 1fr 1.05fr; gap: 64px; align-items: start; }
+  .free {
+    background: var(--sage); padding: 30px 30px 26px; border-radius: 6px; transform: rotate(-1.5deg);
+    box-shadow: 0 5px 0 #86ad7c; margin-top: 30px;
+  }
+  .free h3 { font: 700 32px/1 var(--hand); margin: 0 0 14px; }
+  .free ul { margin: 0; padding: 0; list-style: none; }
+  .free li { padding: 7px 0 7px 26px; position: relative; border-bottom: 1px dashed rgba(69,54,42,.25); }
+  .free li:last-child { border: 0; }
+  .free li::before { content: ''; position: absolute; left: 2px; top: 15px; width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--ink); }
+  .receipt {
+    position: relative; background: #fffdf7; padding: 34px 34px 40px;
+    font-family: var(--body); box-shadow: 0 8px 0 var(--edge), 0 20px 40px rgba(69,54,42,.15);
+    transform: rotate(.8deg);
+    /* borda de baixo picotada */
+    mask: radial-gradient(9px at 50% 100%, transparent 98%, #000) 50% 100% / 22px 100% repeat-x;
+    padding-bottom: 52px;
+  }
+  .receipt .head { text-align: center; border-bottom: 2px dashed var(--edge); padding-bottom: 16px; margin-bottom: 8px; }
+  .receipt .head b { display: block; font: 700 26px var(--head); }
+  .receipt .head span { font-size: 14px; color: var(--ink-2); }
+  .line { display: grid; grid-template-columns: 1fr auto; gap: 16px; padding: 12px 0; border-bottom: 1px dotted var(--edge); }
+  .line b { display: block; font-weight: 800; }
+  .line span { font-size: 15px; color: var(--ink-2); }
+  .line i { font-style: normal; font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); align-self: center; }
+  .total { display: flex; justify-content: space-between; align-items: baseline; padding-top: 18px; }
+  .total span { font-weight: 800; letter-spacing: .1em; text-transform: uppercase; font-size: 14px; }
+  .total b { font: 700 46px var(--head); }
+  .total small { display: block; text-align: right; font-size: 14px; color: var(--ink-2); margin-top: -6px; }
+
+  /* ---------- passos ---------- */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 44px; border-top: 2px solid var(--edge); }
+  .step { padding: 26px 28px 10px 0; }
+  .step + .step { padding-left: 28px; border-left: 2px dashed var(--edge); }
+  .step .n { font: 700 54px/1 var(--hand); color: #8a7cc8; }
+  .step h3 { font: 600 22px var(--head); margin: 8px 0 6px; }
+  .step p { margin: 0; color: var(--ink-2); }
+
+  /* ---------- etiqueta de preço ---------- */
+  .offer { padding: 70px 0 100px; }
+  .offer .wrap { display: grid; grid-template-columns: auto 1fr; gap: 70px; align-items: center; }
+  .pricetag {
+    position: relative; width: 300px; padding: 46px 30px 34px 54px; background: var(--card);
+    clip-path: polygon(16% 0, 100% 0, 100% 100%, 16% 100%, 0 50%);
+    filter: drop-shadow(0 7px 0 var(--edge));
+    transform: rotate(-6deg);
+  }
+  .pricetag::before { content: ''; position: absolute; left: 30px; top: calc(50% - 9px); width: 18px; height: 18px; border-radius: 50%; background: var(--desk); box-shadow: inset 0 2px 0 rgba(0,0,0,.15); }
+  .pricetag .label { display: block; }
+  .pricetag b { display: block; font: 700 76px/1 var(--head); margin: 6px 0 4px; }
+  .pricetag span.hand { font-size: 26px; }
+  .offer h2 { margin-top: 0; }
+  .offer p { color: var(--ink-2); max-width: 34em; }
+
+  /* ---------- perguntas ---------- */
+  .faq .wrap { display: grid; grid-template-columns: .8fr 1.2fr; gap: 56px; }
+  details { border-bottom: 2px dashed var(--edge); padding: 4px 0; }
+  details:first-of-type { border-top: 2px dashed var(--edge); }
+  summary {
+    list-style: none; cursor: pointer; padding: 16px 40px 16px 0; position: relative;
+    font: 600 20px var(--head);
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: '+'; position: absolute; right: 6px; top: 10px; font: 600 28px var(--head); transition: transform .2s ease; }
+  details[open] summary::after { transform: rotate(45deg); }
+  details p { margin: 0 0 18px; color: var(--ink-2); max-width: 40em; }
+
+  footer { padding: 40px 0 50px; border-top: 2px solid var(--edge); font-size: 15px; color: var(--ink-2); }
+  footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  footer b { color: var(--ink); }
+
+  /* ---------- entrada suave ---------- */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (max-width: 900px) {
+    .top nav { display: none; }
+    .hero { padding: 20px 0 70px; }
+    .hero .wrap, .themes-head, .box .wrap, .faq .wrap, .offer .wrap { grid-template-columns: 1fr; gap: 36px; }
+    .stack { margin: 30px 8px 0; }
+    .sticker { right: -4px; top: -34px; font-size: 22px; }
+    .steps { grid-template-columns: 1fr; }
+    .step, .step + .step { padding: 22px 0; border-left: 0; }
+    .step + .step { border-top: 2px dashed var(--edge); }
+    .pricetag { margin: 0 auto; width: 270px; }
+    section { padding: 64px 0; }
+    .free { margin-top: 0; }
+    .receipt { padding: 26px 22px 46px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .themes, .viewer img, .btn, .chip { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="img/icon.png" alt="" width="38" height="38">Poper</a>
+    <nav aria-label="Seções">
+      <a href="#temas">Temas</a>
+      <a href="#incluso">O que vem</a>
+      <a href="#perguntas">Perguntas</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="titulo">
+    <div class="wrap">
+      <div>
+        <span class="label">Poper Premium · Windows e Linux</span>
+        <h1 id="titulo">Troque o caderno inteiro de <em>roupa.</em></h1>
+        <p class="lead">O Poper é um caderno de notas, tarefas e calendário que mora no seu computador. O Premium libera os temas vivos, o editor de temas, sons, cursores e a ligação com o Harmony.</p>
+        <div class="cta-row">
+          <a class="btn buy" href="#comprar">Comprar por R$ 49</a>
+          <a class="link" href="https://github.com/Isaac-GhostLolp/poper-releases/releases/latest">Baixar o Poper grátis</a>
+        </div>
+        <p class="fine">Pagamento único, sem mensalidade. Suas notas continuam suas, com ou sem Premium.</p>
+      </div>
+      <div class="stack" aria-hidden="true">
+        <div class="shot back"><img src="img/neon.webp" alt="" loading="eager"></div>
+        <div class="shot mid"><img src="img/aquarela.webp" alt="" loading="eager"></div>
+        <div class="shot front"><img src="img/cardboard.webp" alt="" loading="eager"></div>
+        <span class="tape a"></span><span class="tape b"></span>
+        <span class="sticker">11 temas<br>na caixa</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="themes" id="temas" aria-labelledby="t-temas">
+    <div class="wrap">
+      <div class="themes-head reveal">
+        <div>
+          <span class="label">Experimente aqui</span>
+          <h2 id="t-temas">Sete temas que mudam tudo, não só a cor.</h2>
+          <p class="intro">Os temas Alive trocam fontes, formas, botões, a tela de abertura e o ambiente, com efeitos animados que dá para desligar. Os quatro clássicos vêm em todo Poper.</p>
+        </div>
+        <div class="chips" role="group" aria-label="Escolher um tema" id="chips"></div>
+      </div>
+      <figure class="viewer reveal" style="margin:0">
+        <div class="screen"><img id="view" src="img/carmesim.webp" alt="A tela inicial do Poper no tema Vigília ao Luar" width="1366" height="736"></div>
+        <figcaption class="caption"><b id="v-name">Vigília ao Luar</b><span class="tag" id="v-tag">Premium</span><span id="v-desc"></span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="box" id="incluso" aria-labelledby="t-box">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="label">O que vem na caixa</span>
+        <h2 id="t-box">O grátis já é um caderno completo. O Premium é o capricho.</h2>
+        <div class="free">
+          <h3>No Poper grátis, pra sempre</h3>
+          <ul>
+            <li>Páginas em blocos, bases de dados em tabela, quadro e galeria</li>
+            <li>Calendário com mês, semana, início e fim, e importação do Google Agenda</li>
+            <li>Tarefas que se repetem, lembretes e a nota do dia</li>
+            <li>Hábitos, humor, pomodoro e o resumo da semana</li>
+            <li>Links entre páginas, etiquetas e busca dentro do texto</li>
+            <li>Backup automático e exportação para Markdown e PDF</li>
+            <li>Quatro temas clássicos</li>
+          </ul>
+        </div>
+      </div>
+      <div class="receipt reveal" aria-label="O que o Premium inclui">
+        <div class="head"><b>Poper Premium</b><span>nota do pedido</span></div>
+        <div class="line"><div><b>Temas Poper Alive</b><span>Vigília ao Luar, Neon 2088, Terminal Fósforo, Aquarela, Sistema 98, Abissal e TV de Tubo</span></div><i>incluso</i></div>
+        <div class="line"><div><b>Editor de temas</b><span>Suas cores, fontes e formas, num arquivo para compartilhar</span></div><i>incluso</i></div>
+        <div class="line"><div><b>Cursores e sons</b><span>Papel, sino, sonar, teclas e mais, em qualquer tema</span></div><i>incluso</i></div>
+        <div class="line"><div><b>Ponte com o Harmony</b><span>A música tocando agora na Home, no modo foco e no pomodoro</span></div><i>incluso</i></div>
+        <div class="line"><div><b>Histórico de versões</b><span>Volte qualquer página para como ela estava</span></div><i>incluso</i></div>
+        <div class="line"><div><b>Importação do Notion e modelos extras</b><span>Uma pasta inteira de uma vez, e modelos de receita, leitura e hábitos</span></div><i>incluso</i></div>
+        <div class="total"><span>Total</span><b>R$ 49</b></div>
+        <small style="display:block;text-align:right;color:var(--ink-2);font-size:14px">uma vez só, com as próximas atualizações</small>
+      </div>
+    </div>
+  </section>
+
+  <section class="how" aria-labelledby="t-how">
+    <div class="wrap reveal">
+      <span class="label">Como funciona</span>
+      <h2 id="t-how">Três passos e o Premium está ligado.</h2>
+      <div class="steps">
+        <div class="step"><span class="n">1</span><h3>Instale o Poper</h3><p>Baixe grátis para Windows ou Linux. Se já usa, é só manter atualizado.</p></div>
+        <div class="step"><span class="n">2</span><h3>Compre o Premium</h3><p>Pague com Pix, cartão ou boleto pela Kiwify. A chave chega no seu e-mail em até 24 horas.</p></div>
+        <div class="step"><span class="n">3</span><h3>Cole a chave</h3><p>Em Ajustes, na parte Poper Premium. Funciona na hora e sem internet.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="offer" id="comprar" aria-labelledby="t-offer">
+    <div class="wrap">
+      <div class="pricetag reveal" aria-hidden="true">
+        <span class="label">Poper Premium</span>
+        <b>R$ 49</b>
+        <span class="hand">pagamento único</span>
+      </div>
+      <div class="reveal">
+        <h2 id="t-offer">Leve todos os temas de uma vez.</h2>
+        <p>Sem assinatura e sem surpresa na fatura. Você paga uma vez e recebe as próximas atualizações do Premium. Se não gostar, tem 7 dias para pedir o dinheiro de volta.</p>
+        <div class="cta-row" style="margin-top:26px">
+          <a class="btn buy" href="#comprar">Comprar por R$ 49</a>
+          <a class="link" href="https://github.com/Isaac-GhostLolp/poper-releases/releases/latest">Baixar o Poper grátis</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" id="perguntas" aria-labelledby="t-faq">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="label">Perguntas</span>
+        <h2 id="t-faq">Antes de comprar.</h2>
+      </div>
+      <div class="reveal">
+        <details><summary>Tem mensalidade?</summary><p>Não. O Premium custa R$ 49 uma vez só, e as próximas atualizações dele vêm junto.</p></details>
+        <details><summary>Em quais computadores funciona?</summary><p>Windows 10 e 11, e Linux com instalador .deb ou AppImage. Ainda não há versão para Mac.</p></details>
+        <details><summary>Precisa de internet?</summary><p>Não. As notas ficam no seu computador e a chave é conferida ali mesmo. A internet só é usada para baixar atualizações.</p></details>
+        <details><summary>Posso usar em mais de um computador?</summary><p>Pode. A chave é sua: cole nos computadores que você usa.</p></details>
+        <details><summary>E se eu parar de usar o Premium?</summary><p>Nada se perde. Páginas, tarefas, calendário, backups e exportações continuam funcionando no Poper grátis.</p></details>
+        <details><summary>E se eu não gostar?</summary><p>Você tem 7 dias para pedir o reembolso pela Kiwify, como garante o Código de Defesa do Consumidor.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><b>Poper</b> é um app da <b>Ghostguard</b>.</span>
+    <span>© 2026 Ghostguard. Pagamentos processados pela Kiwify.</span>
+  </div>
+</footer>
+
+<script>
+  /* Link do checkout da Kiwify. Vazio = os botões mostram "Venda abre em breve". */
+  const KIWIFY_URL = ''
+
+  document.querySelectorAll('.buy').forEach((a) => {
+    if (KIWIFY_URL) { a.href = KIWIFY_URL; return }
+    a.textContent = 'Venda abre em breve'
+    a.setAttribute('aria-disabled', 'true')
+    a.removeAttribute('href')
+  })
+
+  const THEMES = [
+    ['carmesim', 'Vigília ao Luar', 'Cidade gótica sob a lua cheia: névoa, pedra e lampiões.', '#2b3038', '#dedbd2', '#d9a35b', '#1f2329', true],
+    ['neon', 'Neon 2088', 'Cidade chuvosa, letreiros magenta e ciano, HUD e glitch.', '#07060f', '#e9f6ff', '#ff2bd6', '#120f26', true],
+    ['fosforo', 'Terminal Fósforo', 'Monitor verde, linhas de varredura e cursor piscando.', '#020a04', '#39ff6a', '#39ff6a', '#04170a', true],
+    ['aquarela', 'Aquarela', 'Papel de algodão, manchas de tinta e traço de lápis.', '#f6efe3', '#3b3a4a', '#e0798f', '#fffcf6', true],
+    ['sistema98', 'Sistema 98', 'Área de trabalho retrô com janelas em relevo e pixels.', '#2f8a8a', '#ffffff', '#d4d0c8', '#0a246a', true],
+    ['abissal', 'Abissal', 'Submersível a 3.800 metros: neve marinha e luz laranja.', '#04090d', '#d6e3e8', '#ff6a2b', '#0c1922', true],
+    ['tubo', 'TV de Tubo', 'Televisão antiga: chiado, troca de canal e barras coloridas.', '#3a2313', '#f2f5ff', '#ffd400', '#0f1824', true],
+    ['cardboard', 'Papelão', 'Caixa de papelão, cartolina e fita crepe.', '#e6d6bd', '#45362a', '#b3a6ea', '#fbf5ea', false],
+    ['nightcap', 'Touca de dormir', 'Azul acolchoado com costuras e velinha.', '#2d3b5c', '#ede6d6', '#b3a6ea', '#1f2a45', false],
+    ['ilha', 'Ilha', 'Verde de floresta, madeira e acampamento.', '#e9e3c9', '#4a4130', '#a9cf9f', '#fbf7e8', false],
+    ['pessego', 'Pêssego', 'Clarinho e laranja, como uma tela de início.', '#fbf6ef', '#7a4d14', '#f5c48a', '#ffffff', false]
+  ]
+  const sec = document.querySelector('.themes')
+  const chips = document.getElementById('chips')
+  const view = document.getElementById('view')
+  const name = document.getElementById('v-name')
+  const desc = document.getElementById('v-desc')
+  const tag = document.getElementById('v-tag')
+  // pré-carrega para a troca ser instantânea
+  THEMES.forEach(([id]) => { const i = new Image(); i.src = `img/${id}.webp` })
+
+  function pick(i) {
+    const [id, n, d, deskC, inkC, accC, cardC, premium] = THEMES[i]
+    sec.style.setProperty('--t-desk', deskC)
+    sec.style.setProperty('--t-ink', inkC)
+    sec.style.setProperty('--t-accent', accC)
+    sec.style.setProperty('--t-card', cardC)
+    view.classList.add('fading')
+    setTimeout(() => {
+      view.src = `img/${id}.webp`
+      view.alt = `A tela inicial do Poper no tema ${n}`
+      view.classList.remove('fading')
+    }, 160)
+    name.textContent = n
+    desc.textContent = d
+    tag.textContent = premium ? 'Premium' : 'Grátis'
+    chips.querySelectorAll('.chip').forEach((c, k) => c.setAttribute('aria-pressed', String(k === i)))
+  }
+  THEMES.forEach(([, n, , , , , , premium], i) => {
+    const b = document.createElement('button')
+    b.type = 'button'
+    b.className = 'chip'
+    b.innerHTML = n + (premium ? '' : '<small>grátis</small>')
+    b.addEventListener('click', () => pick(i))
+    chips.appendChild(b)
+  })
+  pick(0)
+
+  // entrada suave das seções
+  const io = new IntersectionObserver((list) => list.forEach((e) => e.isIntersecting && (e.target.classList.add('in'), io.unobserve(e.target))), { threshold: 0.12 })
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el))
+</script>
+</body>
+</html>
